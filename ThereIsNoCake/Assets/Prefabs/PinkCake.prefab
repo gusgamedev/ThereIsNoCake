@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6925537906211850383}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6, y: -1.37, z: 0}
+  m_LocalPosition: {x: -1.06, y: -1.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6925537906647099080}
@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 6925537906647099087}
   - component: {fileID: 6925537906647099086}
   - component: {fileID: 6925537906647099089}
+  - component: {fileID: 1143377936}
   m_Layer: 9
   m_Name: PinkCake
   m_TagString: Enemy
@@ -192,19 +193,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 6925537906647099088}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6066b1d7124b7e94d9607f40d3e4b106, type: 3}
+  m_Script: {fileID: 11500000, guid: d598916287a6ec746a89ab393c3a2423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 3
-  _speed: -4
+  _speed: -5
   _jumpForce: 4
-  explosion: {fileID: 4956657935552554160, guid: 6af63fc6cb675764493cab781f7adcf8,
-    type: 3}
   _layerCollision:
     serializedVersion: 2
     m_Bits: 1024
   _collisonDetector: {fileID: 6925537906211850380}
-  _anim: {fileID: 0}
+  _isAlive: 1
+  _knockBackForce: 300
 --- !u!114 &6925537906647099086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,3 +230,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d162d394b41272749b11fcd0f489d2b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1143377936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6925537906647099088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08fd8cef606243c4a8b58b0bae58d5ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitRadius: 0.78
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  offset: {x: 0, y: -1}

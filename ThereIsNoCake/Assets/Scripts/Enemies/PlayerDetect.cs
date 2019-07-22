@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerDetect : MonoBehaviour
 {
-    [HideInInspector] public float hitRadius = 2f;
+    public float hitRadius = 2f;
     public LayerMask enemyLayer;
     public Vector2 offset = Vector2.zero;
 
