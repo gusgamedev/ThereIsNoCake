@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     private FlashDamage _damageEffect;
     private bool _isVisible = false;   
     private Rigidbody2D _rb;
+    private AudioSource _audioHit;
     private bool _canTakeDamage = true;
 
     [SerializeField] private int _health = 3;
@@ -28,6 +29,7 @@ public class Enemy : MonoBehaviour
         _anim = GetComponent<Animator>();
         _damageEffect = GetComponent<FlashDamage>();
         _rb = GetComponent<Rigidbody2D>();
+        _audioHit = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -69,6 +71,7 @@ public class Enemy : MonoBehaviour
                 _canMove = false;
                 _health -= damage;
                 _damageEffect.SetFlashDamage();
+                _audioHit.Play();
                 KnockBack();
                 Invoke("EnableDamage", 0.5f);
 

@@ -5,6 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    AudioSource audioMenu;
+    public AudioClip startClip;
+
+    private void Start()
+    {
+        audioMenu = GetComponent<AudioSource>();
+    }
+
     public void GoToCredits()
     {
         SceneManager.LoadScene("Credits");
@@ -12,7 +20,7 @@ public class Menu : MonoBehaviour
 
     public void GoToOptions()
     {
-        SceneManager.LoadScene("Options");
+        SceneManager.LoadScene("Help");
     }
 
     public void GoToMenu()
@@ -21,6 +29,15 @@ public class Menu : MonoBehaviour
     }
 
     public void GoToGame()
+    {
+        audioMenu.Stop();
+        audioMenu.loop = false;
+        audioMenu.clip = startClip;
+        audioMenu.Play();
+        Invoke("StartGame", 2.1f);
+    }
+
+    void StartGame()
     {
         SceneManager.LoadScene("Level01");
     }

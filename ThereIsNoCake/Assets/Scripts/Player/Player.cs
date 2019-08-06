@@ -140,8 +140,11 @@ public class Player : MonoBehaviour
             if (canMove)
             {
                 canMove = false;
+                Level.instance.GameOver();
                 anim.PlayerDie();
                 audioPlayer.DieFx();
+                Level.instance.RestartLevel();
+
                 
             }
         }

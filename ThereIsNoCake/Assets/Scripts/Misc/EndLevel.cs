@@ -12,10 +12,15 @@ public class EndLevel : MonoBehaviour
             Player player = collision.GetComponent<Player>();
             player.canMove = false;
             player.anim.PlayerRun(0);
-            player.audioPlayer.LevelCompleteFx();
-            Invoke("NextLevel", 1f);
+            Level.instance.LevelClear();
+            //player.audioPlayer.LevelCompleteFx();
+
+            Invoke("NextLevel", 3.2f);
         }
     }
+
+    private void PlayerVoice() { 
+}
 
     private void NextLevel()
     {
